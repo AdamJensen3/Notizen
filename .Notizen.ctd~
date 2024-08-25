@@ -105,7 +105,7 @@ Neu zu testen:
 
 </rich_text>
       </node>
-      <node unique_id="105" master_id="0" name="Samba" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1663616218" ts_lastsave="1724593448">
+      <node unique_id="105" master_id="0" name="!Samba" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1663616218" ts_lastsave="1724593396">
         <rich_text>
 Zeigt alle Freigaben
 </rich_text>

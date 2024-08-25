@@ -105,31 +105,39 @@ Neu zu testen:
 
 </rich_text>
       </node>
-      <node unique_id="105" master_id="0" name="Samba" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1663616218" ts_lastsave="1724593448">
+      <node unique_id="105" master_id="0" name="!Samba" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1663616218" ts_lastsave="1724593394">
+        <rich_text>smbmap -H 10.10.14.188
+listet alle Verzeichnisse auf
+smbclient  \\\\10.10.247.188\\websvr verbindet sich auf die freie/offene Freigabe
+
+dir
+get datei.txt
+
+
+
+
+
+
+
+
+</rich_text>
+        <rich_text scale="h5">enum4linux 10.10.247.188 -a </rich_text>
         <rich_text>
+zeigt viele Infos an
+
 Zeigt alle Freigaben
 </rich_text>
         <rich_text family="monospace">smbclient -N -L \\\\10.129.42.253</rich_text>
         <rich_text>
 
 Zugang als user bob(Passwort muss bekannt sein)
-users ist hier eine der Freigaben
 </rich_text>
         <rich_text family="monospace">smbclient -U bob \\\\10.129.42.253\\users</rich_text>
         <rich_text>
 
 Daten runtelagen mit get
 
-get flag.txt
-
-
-
-
-Zusatz nicht wichtig:
-</rich_text>
-        <rich_text scale="h5">enum4linux 10.10.247.188 -a </rich_text>
-        <rich_text>
-zeigt viele Infos an
+get flag
 </rich_text>
       </node>
       <node unique_id="102" master_id="0" name="Wordpress" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1657569087" ts_lastsave="1665692238"/>
